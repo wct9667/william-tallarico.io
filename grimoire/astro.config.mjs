@@ -7,6 +7,6 @@ import { defineConfig } from 'astro/config';
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://github.com/wct9667/william-tallarico.io',
-	  base: '/grimoire/',
-	integrations: [mdx(), sitemap()],
+  	base: '/william-tallarico.io/',
+  	integrations: [mdx(), sitemap()],
 });
