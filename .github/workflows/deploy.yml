@@ -1,13 +1,11 @@
 name: Deploy to GitHub Pages
 
 on:
-  # Trigger the workflow every time `main` is pushed to
   push:
-    branches: [ main ]
+    branches: [main]
 
   workflow_dispatch:
 
-# Allow this job to clone the repo and create a page deployment
 permissions:
   contents: read
   pages: write
@@ -17,13 +15,14 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout your repository using git
+      - name: Checkout repository
         uses: actions/checkout@v5
+
       - name: Install, build, and upload your site
         uses: withastro/action@v5
         with:
-          path: ./grimoire 
-           node-version: 25.8 
+          path: ./grimoire
+          node-version: 20
 
   deploy:
     needs: build
@@ -31,6 +30,7 @@ jobs:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
+
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
