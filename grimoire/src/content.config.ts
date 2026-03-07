@@ -28,8 +28,8 @@ const project = defineCollection({
 			pubDate: z.coerce.date(),
 			updatedDate: z.coerce.date().optional(),
 			heroImage: image().optional(),
+			tools: z.array(z.string()).default([]),
 		}),
-	//TODO Update above to be project specific
 });
 
 export const collections = { blog, project };

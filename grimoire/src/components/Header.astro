@@ -7,11 +7,11 @@ import HeaderLink from './HeaderLink.astro';
 	<nav>
 		<h2><a href="/">{SITE_TITLE}</a></h2>
 		<div class="internal-links">
-			<HeaderLink href="/">Home</HeaderLink>
-			<HeaderLink href="/project">Projects</HeaderLink>
-			<HeaderLink href="/blog">Blog</HeaderLink>
-			<HeaderLink href="/about">About</HeaderLink>
-			<HeaderLink href="/Tallarico_William_Resume.pdf">Resume</HeaderLink>
+			<HeaderLink href="/">HOME</HeaderLink>
+			<HeaderLink href="/project">PROJECTS</HeaderLink>
+			<HeaderLink href="/blog">BLOG</HeaderLink>
+			<HeaderLink href="/about">ABOUT</HeaderLink>
+			<HeaderLink href="/Tallarico_William_Resume.pdf">RESUME</HeaderLink>
 		</div>
 	</nav>
 </header>
@@ -19,8 +19,11 @@ import HeaderLink from './HeaderLink.astro';
 	header {
 		margin: 0;
 		padding: 0 1em;
-		background: white;
-		box-shadow: 0 2px 8px rgba(var(--black), 5%);
+		background: rgb(var(--color-green));
+		z-index: 1000;
+		top : 0;
+		position: sticky;
+		box-shadow: 0 2px 8px rgba(var(--color-grey), 5%);
 	}
 	h2 {
 		margin: 0;
@@ -38,7 +41,7 @@ import HeaderLink from './HeaderLink.astro';
 	}
 	nav a {
 		padding: 1em 0.5em;
-		color: var(--black);
+		color: rgb(var(--color-grey));
 		border-bottom: 4px solid transparent;
 		text-decoration: none;
 	}
@@ -46,6 +49,8 @@ import HeaderLink from './HeaderLink.astro';
 		text-decoration: none;
 		border-bottom-color: var(--accent);
 	}
+	
+
 	.social-links,
 	.social-links a {
 		display: flex;
