@@ -3,28 +3,54 @@ import { SITE_TITLE } from '../consts';
 import HeaderLink from './HeaderLink.astro';
 ---
 
-<header>
-	<nav>
-		<h2><a href="/">{SITE_TITLE}</a></h2>
-		<div class="internal-links">
+<header class="sticky top-0 z-50 px-4 bg-[rgb(var(--color-green))]/100 backdrop-blur border-b border-black/5 shadow-sm">
+
+	<nav class="max-w-5xl mx-auto flex items-center justify-between">
+		<h2>
+			<a href="/">{SITE_TITLE}</a>
+		</h2>
+		
+		<div class="hidden md:flex gap-6 internal-links">
 			<HeaderLink href="/">HOME</HeaderLink>
 			<HeaderLink href="/project">PROJECTS</HeaderLink>
 			<HeaderLink href="/blog">BLOG</HeaderLink>
 			<HeaderLink href="/about">ABOUT</HeaderLink>
 			<HeaderLink href="/Tallarico_William_Resume.pdf">RESUME</HeaderLink>
 		</div>
+
+		<!-- Hamburger -->
+		<button
+			id="menu-btn"
+			class="md:hidden flex flex-col gap-1 p-5"
+			aria-label="Toggle menu"
+		>
+			<span class="w-6 h-0.5 bg-[rgb(var(--color-grey))]"></span>
+			<span class="w-6 h-0.5 bg-[rgb(var(--color-grey))]"></span>
+			<span class="w-6 h-0.5 bg-[rgb(var(--color-grey))]"></span>
+		</button>
 	</nav>
+
+	<!-- Mobile Menu -->
+	<div id="mobile-menu" class="hidden md:hidden flex flex-col gap-4 p-4 border-t">
+		<HeaderLink href="/">HOME</HeaderLink>
+		<HeaderLink href="/project">PROJECTS</HeaderLink>
+		<HeaderLink href="/blog">BLOG</HeaderLink>
+		<HeaderLink href="/about">ABOUT</HeaderLink>
+		<HeaderLink href="/Tallarico_William_Resume.pdf">RESUME</HeaderLink>
+	</div>
 </header>
+
+
+<script>
+	const btn = document.getElementById("menu-btn")!;
+	const menu = document.getElementById("mobile-menu")!;
+
+	btn.addEventListener("click", () => {
+		menu.classList.toggle("hidden");
+	});
+</script>
+
 <style>
-	header {
-		margin: 0;
-		padding: 0 1em;
-		background: rgb(var(--color-green));
-		z-index: 1000;
-		top : 0;
-		position: sticky;
-		box-shadow: 0 2px 8px rgba(var(--color-grey), 5%);
-	}
 	h2 {
 		margin: 0;
 		font-size: 1em;
@@ -33,31 +59,16 @@ import HeaderLink from './HeaderLink.astro';
 	h2 a,
 	h2 a.active {
 		text-decoration: none;
-	}
-	nav {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-	}
-	nav a {
 		padding: 1em 0.5em;
 		color: rgb(var(--color-grey));
 		border-bottom: 4px solid transparent;
-		text-decoration: none;
 	}
-	nav a.active {
-		text-decoration: none;
-		border-bottom-color: var(--accent);
+
+	nav a:hover {
+		color: var(--accent);
 	}
 	
-
-	.social-links,
-	.social-links a {
-		display: flex;
-	}
-	@media (max-width: 720px) {
-		.social-links {
-			display: none;
-		}
+	nav a.active {
+		text-decoration: none;
 	}
 </style>
