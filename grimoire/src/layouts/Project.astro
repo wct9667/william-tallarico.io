@@ -1,149 +1,135 @@
 ---
-import { Image } from 'astro:assets';
-import type { CollectionEntry } from 'astro:content';
+import {Image} from 'astro:assets';
+import type {CollectionEntry} from 'astro:content';
+import type {MarkdownHeading} from "astro";
 import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
-import FormattedDate from '../components/FormattedDate.astro';
 import Header from '../components/Header.astro';
+import FormattedDate from '../components/FormattedDate.astro';
 
-type Props = CollectionEntry<'project'>['data'];
 
-const 
-	{title, description,startDate,  pubDate, updatedDate, heroImage, tools } = Astro.props;
+type Props = CollectionEntry<'project'>['data'] & {
+    headings?: MarkdownHeading[]
+};
+
+const {
+    title,
+    description,
+    heroImage,
+    startDate,
+    updatedDate,
+    company,
+    role,
+    skills,
+	links,
+    headings
+} = Astro.props;
 ---
 
 <html lang="en">
 <head>
-	<BaseHead title={title} description={description} />
-	<style>
-		main {
-			width: calc(100% - 2em);
-			max-width: 100%;
-			margin: 0;
-		}
-		.hero-image {
-			width: 100%;
-		}
-		.hero-image img {
-			display: block;
-			margin: 0 auto;
-			border-radius: 12px;
-			box-shadow: var(--box-shadow);
-		}
-		.prose {
-			width: 720px;
-			max-width: calc(100% - 2em);
-			margin: auto;
-			padding: 1em;
-			color: rgb(var(--gray-dark));
-		}
-		.title {
-			margin-bottom: 1em;
-			padding: 1em 0;
-			text-align: center;
-			line-height: 1;
-		}
-		.title h1 {
-			margin: 0 0 0.5em 0;
-		}
-		.date {
-			margin-bottom: 0.5em;
-			color: rgb(var(--gray));
-		}
-		.last-updated-on {
-			font-style: italic;
-		}
-
-		.skills {
-			display: flex;
-			flex-wrap: wrap;
-			gap: 6px;
-		}
-
-		.skill {
-			background: #eef2ff;
-			color: #3730a3;
-			padding: 4px 8px;
-			border-radius: 6px;
-			font-size: 0.85rem;
-		}
-
-		.layout {
-			display: flex;
-			gap: 2rem;
-			max-width: 1400px;
-			margin: auto;
-			padding: 1rem;
-		}
-
-		.sidebar {
-			width: 240px;
-			flex-shrink: 0;
-		}
-
-		.sidebar-section {
-			margin-bottom: 2rem;
-		}
-
-		.sidebar-section h3 {
-			margin-bottom: 0.5rem;
-			font-size: 1.1rem;
-		}
-
-		.sidebar-section ul {
-			list-style: none;
-			padding: 0;
-			margin: 0;
-		}
-
-		.sidebar-section li {
-			margin-bottom: 0.4rem;
-		}
-
-		.sidebar-section a {
-			text-decoration: none;
-			color: #2563eb;
-		}
-
-		.sidebar-section a:hover {
-			text-decoration: underline;
-		}
-
-		main {
-			flex: 1;
-		}
-	</style>
+    <BaseHead title={title} description={description}/>
 </head>
 
-<body>
-<Header />
-	<main>
-		<article>
-			<div class="hero-image">
-				{heroImage && <Image width={1020} height={510} src={heroImage} alt="" />}
-			</div>
+<body class="bg-white text-gray-900">
 
-			<div class="prose">
-				<div class="title">
-					<div class="date">
-						<FormattedDate date={startDate} />
-						--
-						Present
-					</div>
-					<h1>{title}</h1>
-					<hr />
-				</div>
+<Header/>
 
-				<slot />
+<main class="px-8 lg:px-16 py-16">
 
-				{updatedDate && (
-					<div class="last-updated-on">
-						Last updated on <FormattedDate date={updatedDate} />
-					</div>
-				)}
-			</div>
-		</article>
-	</main>
-<Footer />
+    <article class="max-w-[1024px] mx-auto">
+        
+        <header class="max-w-4xl mb-16">
+
+            <h1 class="text-4xl lg:text-5xl font-bold mb-4">
+                {title}
+            </h1>
+
+            {description && (
+                    <p class="text-xl text-gray-500 mb-10">
+                        {description}
+                    </p>
+            )}
+
+            {heroImage && (
+                    <div class="mb-20 max-w-2xl ">
+                        <Image
+                                class="rounded-xl shadow-lg w-full"
+                                width={1400}
+                                height={700}
+                                src={heroImage}
+                                alt=""
+                        />
+                    </div>
+            )}
+
+        </header>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-20">
+
+            <div class="lg:col-span-8 prose prose-neutral max-w-none text-lg">
+                <slot/>
+            </div>
+
+            <aside class="lg:col-span-4 lg:sticky lg:top-24 h-fit text-xs order-first lg:order-none mb-4 lg:mb-0 pt-2 lg:pt-3">
+                <div class="space-y-4 lg:space-y-6 pl-0 lg:pl-6">
+
+                    {(company || role || startDate || updatedDate) && (
+                            <div class="flex flex-col gap-1">
+                                {company && <div><span class="font-semibold">Company:</span> {company}</div>}
+                                {role && <div><span class="font-semibold">Role:</span> {role}</div>}
+                                {startDate && <div><span class="font-semibold">Timeline:</span> <FormattedDate date={startDate}/> – Present</div>}
+                                {startDate && <div><span class="font-semibold">Last Updated:</span> <FormattedDate date={updatedDate}/></div>}
+                            </div>
+                    )}
+
+                    {skills && skills.length > 0 && (
+                            <div>
+                                <div class="uppercase tracking-wide font-semibold mb-1">Skills</div>
+                                <div class="flex flex-wrap gap-1">
+                                    {skills.map(skill => (
+                                            <span class="px-2 py-0.5 bg-brand-green rounded text-brand-white">{skill}</span>
+                                    ))}
+                                </div>
+                            </div>
+                    )}
+
+                    {links && links.length > 0 && (
+                            <div>
+                                <div class="uppercase tracking-wide font-semibold mb-1">Links</div>
+                                <div class="flex flex-wrap gap-1">
+                                    {links.map(link => (
+                                            <a href={link.url} target="_blank" class="px-2 py-0.5 bg-brand-white rounded">{link.name}</a>
+                                    ))}
+                                </div>
+                            </div>
+                    )}
+
+                    {headings && headings.length > 0 && (
+                            <div>
+                                <div class="uppercase font-semibold tracking-wide mb-1">Contents</div>
+                                <ul class="list-none ml-0 space-y-1">
+                                    {headings.map(heading => (
+                                            <li class={`${heading.depth === 3 ? 'pl-3' : ''}`}>
+                                                <a href={`#${heading.slug}`} class={`${heading.depth === 2 ? 'font-semibold' : 'text-xs'}`}>
+                                                    {heading.text}
+                                                </a>
+                                            </li>
+                                    ))}
+                                </ul>
+                            </div>
+                    )}
+                </div>
+            </aside>
+
+
+        </div>
+
+    </article>
+
+</main>
+
+<Footer/>
+
 </body>
 </html>

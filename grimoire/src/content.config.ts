@@ -27,8 +27,18 @@ const project = defineCollection({
 			startDate: z.coerce.date(),
 			pubDate: z.coerce.date(),
 			updatedDate: z.coerce.date().optional(),
+			currentStatus: z.string(),
+			company: z.string(),
+			teamSize: z.string(),
+			role: z.string(),
 			heroImage: image().optional(),
-			tools: z.array(z.string()).default([]),
+			skills: z.array(z.string()).default([]),
+			links: z.array(
+					z.object({
+						name: z.string(),
+						url: z.string().url()
+					}))
+				.default([]),
 		}),
 });
 

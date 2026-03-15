@@ -1,40 +1,42 @@
 ﻿@import "tailwindcss";
 
+@import "tailwindcss";
+
 @theme {
-    --color-grey: 203, 203, 203;
-    --color-white: 242, 242, 242;
-    --color-green: 23, 77, 56;
-    --color-brown: 77, 23, 23;
+    --color-brand-accent: #D35400;
+    
+    --color-brand-grey: rgb(203 203 203);
+    --color-brand-white: rgb(242 242 242);
+    --color-brand-green: rgb(23 77 56);
+    --color-brand-brown: rgb(77 23 23);
+
+    /* Gradients */
+    --gradient-gray: linear-gradient(
+            rgba(var(--color-brand-grey) / 0.9),
+            rgb(255 255 255)
+    );
+    
+    --shadow-soft:
+            0 2px 6px rgb(var(--color-brand-grey) / 0.25),
+            0 8px 24px rgb(var(--color-brand-grey) / 0.33),
+            0 16px 32px rgb(var(--color-brand-grey) / 0.33);
+    
+    --font-mono: "JetBrains Mono", monospace;
+}
+
+@font-face {
+    font-family: "JetBrains Mono";
+    src: url("/fonts/JetBrainsMono-VariableFont_wght.ttf") format("truetype");
+    font-weight: 400 700;
+    font-style: normal;
+    font-display: swap;
 }
 
 
-:root {
-    --accent: #D35400;
-    --accent-dark: #9A2B00;
-    --black: 15, 18, 25;
-    --gray: 96, 115, 159;
-    --gray-light: 229, 233, 240;
-    --gray-dark: 34, 41, 57;
-    --color-grey: 203, 203, 203;
-    --color-white: 242, 242, 242;
-    --color-green: 23, 77, 56;
-    --color-brown: 77, 23, 23;
-    --gray-gradient: rgba(var(--color-grey), 90%), #fff;
-    --box-shadow:
-            0 2px 6px rgba(var(--gray), 25%), 0 8px 24px rgba(var(--gray), 33%), 0 16px 32px
-            rgba(var(--gray), 33%);
-}
 @font-face {
     font-family: "JetBrains Mono";
     src: url("/fonts/JetBrainsMono-VariableFont_wght.ttf") format("tiff");
     font-weight: 400;
-    font-style: normal;
-    font-display: swap;
-}
-@font-face {
-    font-family: "JetBrains Mono";
-    src: url("/fonts/JetBrainsMono-VariableFont_wght.ttf") format("woff");
-    font-weight: 700;
     font-style: normal;
     font-display: swap;
 }

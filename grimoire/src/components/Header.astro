@@ -3,7 +3,7 @@ import { SITE_TITLE } from '../consts';
 import HeaderLink from './HeaderLink.astro';
 ---
 
-<header class="sticky top-0 z-50 px-4 bg-[rgb(var(--color-green))]/100 backdrop-blur border-b border-black/5 shadow-sm">
+<header class="sticky top-0 z-50 px-4 bg-brand-green/90 backdrop-blur border-b border-black/5 shadow-sm">
 
 	<nav class="max-w-5xl mx-auto flex items-center justify-between">
 		<h2>
@@ -24,14 +24,14 @@ import HeaderLink from './HeaderLink.astro';
 			class="md:hidden flex flex-col gap-1 p-5"
 			aria-label="Toggle menu"
 		>
-			<span class="w-6 h-0.5 bg-[rgb(var(--color-grey))]"></span>
-			<span class="w-6 h-0.5 bg-[rgb(var(--color-grey))]"></span>
-			<span class="w-6 h-0.5 bg-[rgb(var(--color-grey))]"></span>
+			<span class="w-6 h-0.5 bg-brand-grey"></span>
+			<span class="w-6 h-0.5 bg-brand-grey"></span>
+			<span class="w-6 h-0.5 bg-brand-grey"></span>
 		</button>
 	</nav>
 
 	<!-- Mobile Menu -->
-	<div id="mobile-menu" class="hidden md:hidden flex flex-col gap-4 p-4 border-t">
+	<div id="mobile-menu" class="hidden md:hidden flex-col gap-4 p-4 border-t">
 		<HeaderLink href="/">HOME</HeaderLink>
 		<HeaderLink href="/project">PROJECTS</HeaderLink>
 		<HeaderLink href="/blog">BLOG</HeaderLink>
@@ -60,15 +60,7 @@ import HeaderLink from './HeaderLink.astro';
 	h2 a.active {
 		text-decoration: none;
 		padding: 1em 0.5em;
-		color: rgb(var(--color-grey));
+		color: var(--color-brand-grey);
 		border-bottom: 4px solid transparent;
-	}
-
-	nav a:hover {
-		color: var(--accent);
-	}
-	
-	nav a.active {
-		text-decoration: none;
 	}
 </style>

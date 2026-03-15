@@ -1,115 +1,100 @@
 ---
-import { Image } from 'astro:assets';
-import { getCollection } from 'astro:content';
+import {Image} from 'astro:assets';
+import {getCollection} from 'astro:content';
 import BaseHead from '../../components/BaseHead.astro';
 import Footer from '../../components/Footer.astro';
-import FormattedDate from '../../components/FormattedDate.astro';
 import Header from '../../components/Header.astro';
-import { SITE_DESCRIPTION, SITE_TITLE } from '../../consts';
+import {SITE_DESCRIPTION, SITE_TITLE} from '../../consts';
 
 const posts = (
-	await getCollection('project'))
-	.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
-);
+	await getCollection('project')
+).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 ---
 
-<!doctype html>
-<html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-		<style>
-			main {
-				width: 960px;
-			}
-			ul {
-				display: flex;
-				flex-wrap: wrap;
-				gap: 2rem;
-				list-style-type: none;
-				margin: 0;
-				padding: 0;
-			}
-			ul li {
-				width: calc(50% - 1rem);
-			}
-			ul li * {
-				text-decoration: none;
-				transition: 0.2s ease;
-			}
-			ul li:first-child {
-				width: 100%;
-				margin-bottom: 1rem;
-				text-align: center;
-			}
-			ul li:first-child img {
-				width: 100%;
-			}
-			ul li:first-child .title {
-				font-size: 2.369rem;
-			}
-			ul li img {
-				margin-bottom: 0.5rem;
-				border-radius: 12px;
-			}
-			ul li a {
-				display: block;
-			}
-			.title {
-				margin: 0;
-				color: rgb(var(--black));
-				line-height: 1;
-			}
-			.date {
-				margin: 0;
-				color: rgb(var(--color-brown));
-			}
-			ul li a:hover h4,
-			ul li a:hover .date {
-				color: rgb(var(--accent));
-			}
-			ul a:hover img {
-				box-shadow: var(--box-shadow);
-			}
-			@media (max-width: 720px) {
-				ul {
-					gap: 0.5em;
-				}
-				ul li {
-					width: 100%;
-					text-align: center;
-				}
-				ul li:first-child {
-					margin-bottom: 0;
-				}
-				ul li:first-child .title {
-					font-size: 1.563em;
-				}
-			}
-		</style>
-	</head>
-	<body>
-		<Header />
-		<main>
-			<section>
-				<ul>
-					{
-						posts.map((post) => (
-							<li>
-								<a href={`/project/${post.id}/`}>
-									{post.data.heroImage && (
-										<Image width={720} height={360} src={post.data.heroImage} alt="" />
-									)}
-									<h4 class="title">{post.data.title}</h4>
-									<p class="date">
-										<FormattedDate date={post.data.pubDate} />
-									</p>
-								</a>
-							</li>
-						))
-					}
-				</ul>
-			</section>
-		</main>
-		<Footer />
-	</body>
-</html>
+<head>
+	<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION}/>
+</head>
+
+<body>
+<Header/>
+
+<main class="max-w-[960px] mx-auto px-4 py-12">
+	<h1 class="text-4xl font-bold mb-2 text-gray-900">PROJECTS</h1>
+	<p class="text-lg text-gray-700 mb-8">Featured Projects</p>
+
+	<section class="space-y-12">
+		<ul class="grid gap-8 sm:grid-cols-2">
+			{posts.map((project) => (
+				<li>
+					<a href={`/project/${project.id}/`}
+					   class="
+                                block 
+                                relative 
+                                rounded-lg 
+                                overflow-hidden 
+                                shadow-md 
+                                hover:shadow-xl 
+                                transform 
+                                hover:scale-105 
+                                transition 
+                                duration-300 
+                                bg-brand-white
+                            ">
+						{project.data.heroImage && (
+							<Image
+								src={project.data.heroImage}
+								alt=""
+								width={720}
+								height={360}
+								class="w-full h-48 object-cover transition-transform duration-300"
+							/>
+						)}
+
+						<div class="p-5 relative bg-brand-white">
+							<h4 class="text-2xl font-semibold mb-2">
+								{project.data.title}
+							</h4>
+							<p class="text-gray-700">
+								{project.data.description}
+							</p>
+							<p class="text-sm text-gray-600 mb-3">
+								{project.data.role}
+							</p>
+							<p class="text-sm text-gray-500">
+								{project.data.currentStatus}
+							</p>
+						</div>
+
+						<div class="
+                                    absolute 
+                                    inset-0 
+                                    flex 
+                                    items-center 
+                                    justify-center 
+                                    opacity-0 
+                                    hover:opacity-100 
+                                    transition-opacity 
+                                    duration-300
+                                ">
+                                <span class="
+                                        bg-brand-brown 
+                                        text-brand-white 
+                                        text-lg 
+                                        font-semibold 
+                                        px-4 
+                                        py-2 
+                                        rounded 
+                                        shadow-lg
+                                    ">
+                                    View Project
+                                </span>
+						</div>
+					</a>
+				</li>
+			))}
+		</ul>
+	</section>
+</main>
+
+<Footer/>
+</body>
