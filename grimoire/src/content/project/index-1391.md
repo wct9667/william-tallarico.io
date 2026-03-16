@@ -8,7 +8,7 @@ currentStatus: 'In Production'
 teamSize: '6'
 company: 'Unloaded Dice Games'
 role: 'Technical Designer | UI Programmer'
-heroImage: '../../assets/SpaceRaccoons.png'
+heroImage: '../../assets/Index1391.png'
 skills: ["Unity", "C#", "Jira"]
 links: [{name: "Website/Download", url: "https://www.index1391.com"}, 
         {name: "Unloaded Dice", url: "https://www.linkedin.com/company/unloaded-dice-games"}]
@@ -16,7 +16,6 @@ links: [{name: "Website/Download", url: "https://www.index1391.com"},
 Defeat the Virus infecting your faith in this techno-gothic deckbuilder.
 
 Under Construction, come back later!
-See []()
 
 
 
