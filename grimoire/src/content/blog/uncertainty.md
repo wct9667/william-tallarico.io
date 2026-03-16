@@ -1,8 +1,8 @@
 ---
 title: 'Leaning into Uncertainty'
-description: ''
+description: 'Leaning into uncertainty and reframing it as an opportunity.'
 pubDate: 'Jan 01 2026'
-heroImage: '../../assets/blog-placeholder-1.jpg'
+heroImage: '../../assets/Italy.jpg'
 ---
 Changing contexts is always a challenge; the unknown is scary. 
 This alone is enough to stay static, being comfortable but never reaching for more, knowing that it might disrupt such comfort. 

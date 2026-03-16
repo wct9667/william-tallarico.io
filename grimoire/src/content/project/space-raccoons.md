@@ -1,10 +1,10 @@
 ---
 title: 'Space Raccoons : Raccoons in Space'
 description: 'A Chaotic Tabletop Card Game.'
-updatedDate: 'March 13 2026'
+updatedDate: 'March 15 2026'
 startDate: 'January 15 2023'
 pubDate: 'February 6, 2026'
-currentStatus: 'Under Production'
+currentStatus: 'Production (Kickstarted)'
 teamSize: '3'
 company: 'Trashtronauts LLC'
 role: 'Technical Designer'

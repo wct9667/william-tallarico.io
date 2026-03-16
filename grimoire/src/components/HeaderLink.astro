@@ -11,10 +11,10 @@ const isActive = href === pathname || href === '/' + (subpath?.[0] || '');
 
 <a
 	href={href}
-	class={`inline-block py-4 px-2 border-b-4
+	class={`inline-block py-4 px-2 border-b-4 
     ${isActive
 		? '!text-brand-brown border-brand-brown font-bold ' 
-		: 'border-transparent'}
+		: 'border-transparent font-semibold'}
     ${className ?? ''}`}
 	{...props}
 >

@@ -18,6 +18,7 @@ const {
     heroImage,
     startDate,
     updatedDate,
+    currentStatus,
     company,
     role,
     skills,
@@ -71,15 +72,16 @@ const {
                 <slot/>
             </div>
 
-            <aside class="lg:col-span-4 lg:sticky lg:top-24 h-fit text-xs order-first lg:order-none mb-4 lg:mb-0 pt-2 lg:pt-3">
+            <aside class="lg:col-span-4 lg:sticky lg:top-24 h-fit text-sm order-first lg:order-none mb-4 lg:mb-0 pt-2 lg:pt-3">
                 <div class="space-y-4 lg:space-y-6 pl-0 lg:pl-6">
 
                     {(company || role || startDate || updatedDate) && (
                             <div class="flex flex-col gap-1">
                                 {company && <div><span class="font-semibold">Company:</span> {company}</div>}
                                 {role && <div><span class="font-semibold">Role:</span> {role}</div>}
-                                {startDate && <div><span class="font-semibold">Timeline:</span> <FormattedDate date={startDate}/> – Present</div>}
-                                {startDate && <div><span class="font-semibold">Last Updated:</span> <FormattedDate date={updatedDate}/></div>}
+                                {startDate && <div><span class="font-semibold">Start Date:</span> <FormattedDate date={startDate}/></div>}
+                                {currentStatus && <div><span class="font-semibold">Status:</span> {currentStatus}</div>}
+                                <!--{startDate && <div><span class="font-semibold">Last Updated:</span> <FormattedDate date={updatedDate}/></div>}-->
                             </div>
                     )}
 
