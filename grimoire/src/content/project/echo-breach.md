@@ -41,8 +41,7 @@ I created an abstract interaction system where interactable objects would derive
 Objects closest to the player could be interacted with, and do custom interactions depending on the context.
 Interactions could also be locked, and would not show if a certain player could not interact.
 
-### Doors and locks.
-An extension of the interaction system, I created doors that could lock or unlock with a provided context.
+Doors were an extension of the interaction system, I created doors that could lock or unlock with a provided context.
 These were important to push the player in a certain direction, blocking them from further access to the map until conditions were completed.
 
 
@@ -55,18 +54,25 @@ The trickier UI to implement was the interaction prompts, as they had to show ne
 The solution was to make them world-space UI and billboard them to the main camera. 
 To make the UI render over other objects, it was rendered to a separate UI camera, allowing the prompts to not get blocked by other elements of the world.
 
-### Diegetic Screens (Timer and Planet)
+### Diegetic Screens
 I created the diegetic screens of the planet and countdown timer within the ship.
 These gave the player's information regarding their fate.
 Rather than make these separate from the world, it was fitting to make them a part of the space-ship.
 This UI required render-textures, and additional cameras that would render to those textures. 
 This effect created screens which could be placed around the ship to show specific UI.
 
-### Main Menu: Planet Scaling, Light, Volume Slider
-## Tech Art
-###Lighting.
-Post Processesing.
-Shaders: Static for television screens and transparency.
+### Misc Menu UI
+I programmed the Volume Slider to hook into global volume settings. 
+Setup materials to support lighting within the UI.
+I also made the planet scale slowly, making the main menu feel more dynamic.
+
+###  Tech Art
+I also worked on various tech-art tasks within the game that needed doing.
+I set up the lights and lighting within the scene. I baked lighting and set up lighting and reflection volumes for further realism.
+The game was on Web-GL so the resolution and quality of the lighting was limited by Web-GL's performance.
+I implemented the post-process effects such as bloom into the scene.
+Finally, I created shaders for use within the transparency system, as well as a static screen shader to create broken displays within the level.
+
 
 
 
