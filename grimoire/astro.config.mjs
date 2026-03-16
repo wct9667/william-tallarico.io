@@ -8,7 +8,7 @@ const isProd = process.env.NODE_ENV === 'production'
 
 export default defineConfig({
   site: 'https://wct9667.github.io/william-tallarico.io/',
-  base: isProd ? '/william-tallarico.io/' : '/',
+  base: isProd ? 'wct9667.github.io/william-tallarico.io/' : '/',
   integrations: [mdx(), sitemap()],
 
   vite: {
