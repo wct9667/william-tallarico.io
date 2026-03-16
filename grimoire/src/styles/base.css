@@ -29,7 +29,7 @@ h5,
 h6 {
     margin: 0 0 0.5rem 0;
     line-height: 1.2;
-    font-family: "JetBrains Mono", sans-serif;
+    font-family: "Shantell Sans", sans-serif;
 }
 h1 {
     font-size: 3.052em;
@@ -52,6 +52,7 @@ b {
 }
 a {
     color: var(--color-brand-accent);
+    
 }
 a:hover {
     color: var(--color-brand-brown);
@@ -73,7 +74,6 @@ table {
 img {
     max-width: 100%;
     height: auto;
-    border-radius: 8px;
 }
 code {
     padding: 2px 5px;

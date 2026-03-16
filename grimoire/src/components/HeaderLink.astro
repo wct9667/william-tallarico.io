@@ -13,8 +13,8 @@ const isActive = href === pathname || href === '/' + (subpath?.[0] || '');
 	href={href}
 	class={`inline-block py-4 px-2 border-b-4 
     ${isActive
-		? '!text-brand-brown border-brand-brown font-bold ' 
-		: 'border-transparent font-semibold'}
+		? '!text-brand-accent border-brand-accent  hover:text-brand-accent font-bold ' 
+		: '!text-brand-grey border-transparent font-semibold'}
     ${className ?? ''}`}
 	{...props}
 >

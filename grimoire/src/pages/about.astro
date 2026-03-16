@@ -1,15 +1,53 @@
 ---
-import AboutHeroImage from '../assets/Italy.jpg';
-import Layout from '../layouts/BlogPost.astro';
+import {Image} from 'astro:assets';
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import {SITE_DESCRIPTION, SITE_TITLE} from '../consts';
+
+const name = SITE_TITLE;
+const title = "Technical Designer | Producer";
+import Portrait from '../assets/Portrait.jpg';
 ---
 
-<Layout
-	title="About Me"
-	description="A bit about me and what I do"
-	pubDate={new Date('March 13 2026')}
-	heroImage={AboutHeroImage}
->
-	<p>
-		
-	</p>
-</Layout>
+<head>
+    <BaseHead title={`About | ${SITE_TITLE}`} description={SITE_DESCRIPTION}/>
+</head>
+<body>
+<Header/>
+<main class="flex-grow px-4 py-16 max-w-6xl mx-auto">
+    <section class="mb-12">
+        <h1 class="text-4xl font-semibold mb-2">{name}</h1>
+        <p class="text-lg text-gray-700">{title}</p>
+    </section>
+
+    <section class="grid gap-8 md:grid-cols-2 items-center">
+        <div class="flex justify-center md:justify-start">
+            <Image
+                    src={Portrait}
+                    alt={`${name} profile`}
+                    class="w-64 h-64 rounded-xl shadow-lg object-cover"
+                    width={256}
+                    height={256}
+                    loading="eager"
+            />
+        </div>
+
+        <div class="space-y-6 text-left">
+            <h2 class="text-3xl font-bold mb-2">About Me</h2>
+            <p class="text-gray-700">
+                “It's the job that's never started as takes longest to finish.”
+                <br>
+                ― J.R.R. Tolkien
+            </p>
+
+            <a href="/project"
+               class="inline-block mt-4 bg-brand-green text-brand-grey px-6 py-3 rounded-lg shadow hover:bg-green-700 transition">
+                View My Projects
+            </a>
+        </div>
+    </section>
+</main>
+
+<Footer/>
+</body>

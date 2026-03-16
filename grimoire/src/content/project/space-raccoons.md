@@ -4,17 +4,17 @@ description: 'A Chaotic Tabletop Card Game.'
 updatedDate: 'March 15 2026'
 startDate: 'January 15 2023'
 pubDate: 'February 6, 2026'
-currentStatus: 'Production (Kickstarted)'
+currentStatus: 'In Production (Kickstarted)'
 teamSize: '3'
 company: 'Trashtronauts LLC'
-role: 'Technical Designer'
+role: 'Designer | Producer'
 heroImage: '../../assets/SpaceRaccoons.png'
 skills: ["Adobe Suite", "Gimp", "Google Suite", "Python"]
 links: [{name: "Website", url: "https://www.spaceraccoons.net/"}]
 ---
 In Space Raccoons : Raccoons in Space, play as a raccoon rummaging through piles of space trash, trying to find the coolest trash before anyone else.
 
-Space Raccoons has undergone a successful launch underneath `Trashtronauts LLC` where it underwent a Kickstarter crowdfunding campaign.
+Space Raccoons has undergone a successful launch underneath `Trashtronauts LLC`, where it underwent a Kickstarter crowdfunding campaign.
 Currently the game is under production, and will reach backers soon.
 
 ## Design Journey
@@ -32,8 +32,8 @@ What could trash be represented by?
 Whats a fun spin on trash and raccoons?
 `Space`
 
-My goal for the game was to make the player feel like they were themselves rummaging for cool trinkets within a chaotic and whimsical dumpster. 
-With explosions, aliens, and raccoons trying out pieces of trash-tech thrown out for good reason.
+My goal for the game was to make the player feel like they were rummaging for cool trinkets within a chaotic and whimsical dumpster. 
+With raccoons trying out pieces of trash-tech thrown out for good reason. Trash flying through the air. And nefarious aliens trying to hitch a free ride.
 
 ### Core Design
 The core design of Space Raccoons is based in the cards.
