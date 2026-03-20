@@ -7,19 +7,17 @@ pubDate: 'February 6, 2026'
 currentStatus: 'In Production (Kickstarted)'
 teamSize: '3'
 company: 'Trashtronauts LLC'
-role: 'Designer | Producer'
+role: 'Producer | Designer'
 heroImage: '../../assets/SpaceRaccoons.png'
 skills: ["Adobe Suite", "Gimp", "Google Suite", "Python"]
 links: [{name: "Website", url: "https://www.spaceraccoons.net/"}]
 ---
+## Intro
 In Space Raccoons : Raccoons in Space, play as a raccoon rummaging through piles of space trash, trying to find the coolest trash before anyone else.
 
 Space Raccoons has undergone a successful launch underneath `Trashtronauts LLC`, where it underwent a Kickstarter crowdfunding campaign.
 Currently the game is under production, and will reach backers soon.
 
-## Design Journey
-A brief overview of the game's design and journey over multiple years. 
-### Beginnings
 Space Raccoons derived from the question, "whats a funny animal to make a game from?".
 Design originated from a set of questions much like these.
 
