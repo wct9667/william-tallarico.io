@@ -12,7 +12,7 @@ heroImage: '../../assets/SpaceRaccoons.png'
 skills: ["Adobe Suite", "Gimp", "Google Suite", "Python"]
 links: [{name: "Website", url: "https://www.spaceraccoons.net/"}]
 ---
-## Intro
+## Overview
 In Space Raccoons : Raccoons in Space, play as a raccoon rummaging through piles of space trash, trying to find the coolest trash before anyone else.
 
 Space Raccoons has undergone a successful launch underneath `Trashtronauts LLC`, where it underwent a Kickstarter crowdfunding campaign.
